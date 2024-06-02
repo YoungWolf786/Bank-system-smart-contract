@@ -1,15 +1,9 @@
+pragma solidity ^0.7.6;
 
-contract ownable{
-     address internal  owner;
-    
-    modifier onlyowner{
-         require(owner == msg.sender,"you are not the owner");
-         _;
+
+contract kill{
+    function killme() public {
+        selfdestruct (payable (msg.sender));
 
     }
-
-    constructor(){
-        owner = msg.sender;
-    }
-
 }
